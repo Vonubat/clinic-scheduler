@@ -1,5 +1,12 @@
 import React from 'react';
+import { useAppSelector } from 'hooks';
+import { timeSelector } from 'store';
 
 export const Scheduler = (): JSX.Element => {
-  return <div className="Scheduler"></div>;
+  const time = useAppSelector(timeSelector).dt;
+  // const dispatch = useAppDispatch();
+
+  console.log(time);
+
+  return <div className="Scheduler">HI</div>;
 };

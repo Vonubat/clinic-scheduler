@@ -1,25 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { DateTime } from 'luxon';
 
 type TimeState = {
-  timestamp: number;
-  year: number;
-  month: number;
-  date: number;
-  day: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
+  dt: DateTime;
 };
 
 const initialState: TimeState = {
-  timestamp: 0,
-  year: 0,
-  month: 0,
-  date: 0,
-  day: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
+  dt: DateTime.now(),
 };
 
 const timeSlice = createSlice({
@@ -27,15 +14,7 @@ const timeSlice = createSlice({
   initialState,
   reducers: {
     getCurrentTime: (state) => {
-      const t: Date = new Date();
-      state.timestamp = t.getTime();
-      state.year = t.getFullYear();
-      state.month = t.getMonth();
-      state.date = t.getDate();
-      state.day = t.getDay();
-      state.hours = t.getHours();
-      state.minutes = t.getMinutes();
-      state.seconds = t.getSeconds();
+      state.dt = DateTime.now();
     },
   },
 });
