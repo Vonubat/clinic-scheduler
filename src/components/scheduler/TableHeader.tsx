@@ -1,10 +1,10 @@
 import React from 'react';
-import { TIMELINE, locale } from '../../constants';
 import { useAppSelector } from 'hooks';
 import { timeSelector } from 'store';
 import Box from '@mui/material/Box';
 import styled from '@emotion/styled';
-import { DateTime } from 'luxon';
+import { fillDaysHelper } from 'utils';
+import { TableHeaderCell } from './TableHeaderCell';
 
 const Container = styled(Box)({
   display: 'flex',
@@ -15,14 +15,15 @@ const Cell = styled(Box)({
 });
 
 export const TableHeader = (): JSX.Element => {
-  const currentTime: DateTime = DateTime.now().setLocale(locale);
-  const dt: DateTime = useAppSelector(timeSelector).dt;
-  const days = fillDaysHelper(dt);
+  const { selectedTime } = useAppSelector(timeSelector);
+  const days = fillDaysHelper(selectedTime);
+  console.log(days);
+
   return (
     <Container>
       <Box>X</Box>
-      {TIMELINE.map((time: string): JSX.Element => {
-        return <Cell key={time}>{time}</Cell>;
+      {days.map((day): JSX.Element => {
+        return <TableHeaderCell key={day.day} day={day} />;
       })}
     </Container>
   );
