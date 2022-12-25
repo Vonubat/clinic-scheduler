@@ -40,7 +40,7 @@ const Container = styled(Box)({
 
 export const Scheduler = (): JSX.Element => {
   const time = useAppSelector(timeSelector).dt;
-  console.log(time.toLocaleString(DateTime.TIME_24_SIMPLE));
+  console.log(time);
 
   return (
     <Container>
