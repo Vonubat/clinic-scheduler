@@ -1,3 +1,2 @@
-export { Timeline } from './scheduler/Timeline';
+export { TableBody } from './scheduler/TableBody';
 export { TableHeader } from './scheduler/TableHeader';
-export { TableHeaderCell } from './scheduler/TableHeaderCell';

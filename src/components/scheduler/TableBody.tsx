@@ -1,19 +1,17 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { TableHeader, TableBody } from 'components';
 import styled from '@emotion/styled';
+import { Timeline } from './Timeline';
 
 const Container = styled(Box)({
   display: 'flex',
-  flexDirection: 'column',
-  userSelect: 'none',
+  height: '200vh',
 });
 
-export const Scheduler = (): JSX.Element => {
+export const TableBody = (): JSX.Element => {
   return (
     <Container>
-      <TableHeader />
-      <TableBody />
+      <Timeline />
     </Container>
   );
 };

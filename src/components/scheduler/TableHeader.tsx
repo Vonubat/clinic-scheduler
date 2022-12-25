@@ -10,18 +10,14 @@ const Container = styled(Box)({
   display: 'flex',
 });
 
-const Cell = styled(Box)({
-  height: '100%',
-});
-
 export const TableHeader = (): JSX.Element => {
-  const { selectedTime } = useAppSelector(timeSelector);
-  const days = fillDaysHelper(selectedTime);
+  const { dt } = useAppSelector(timeSelector);
+  const days = fillDaysHelper(dt);
   console.log(days);
 
   return (
     <Container>
-      <Box>X</Box>
+      <Box sx={{ maxWidth: 40, minWidth: 40 }} />
       {days.map((day): JSX.Element => {
         return <TableHeaderCell key={day.day} day={day} />;
       })}

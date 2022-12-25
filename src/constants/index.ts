@@ -33,3 +33,7 @@ export const TIMELINE: string[] = [
   '22:00',
   '23:00',
 ];
+
+export enum MediaQuery {
+  md = '(min-width:1024px)',
+}

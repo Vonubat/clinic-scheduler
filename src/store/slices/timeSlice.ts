@@ -3,13 +3,11 @@ import { locale } from '../../constants';
 import { DateTime } from 'luxon';
 
 type TimeState = {
-  currentTime: DateTime;
-  selectedTime: DateTime;
+  dt: DateTime;
 };
 
 const initialState: TimeState = {
-  currentTime: DateTime.now().setLocale(locale),
-  selectedTime: DateTime.now().setLocale(locale),
+  dt: DateTime.now().setLocale(locale),
 };
 
 const timeSlice = createSlice({
