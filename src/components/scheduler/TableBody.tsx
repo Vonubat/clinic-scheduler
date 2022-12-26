@@ -1,27 +1,51 @@
-import React from 'react';
+import React, { useRef, forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import { Timeline } from './Timeline';
 import { DateTime } from 'luxon';
 import { TableColumn } from './TableColumn';
-import { useAppSelector } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { timeSelector } from 'store';
+import { SwipeableHandlers, useSwipeable } from 'react-swipeable';
+import { shiftLeft, shiftRight } from 'store';
 
 type ContainerProps = {
   children: React.ReactNode;
 };
 
-const Container = ({ children }: ContainerProps): JSX.Element => {
-  const { zoom } = useAppSelector(timeSelector);
-  return <Box sx={{ display: 'flex', height: `${zoom}vh` }}>{children}</Box>;
-};
+const Container = forwardRef(
+  ({ children }: ContainerProps, ref: React.ForwardedRef<unknown>): JSX.Element => {
+    const { zoom } = useAppSelector(timeSelector);
+    return (
+      <Box sx={{ display: 'flex', height: `${zoom}vh` }} ref={ref}>
+        {children}
+      </Box>
+    );
+  }
+);
 
 type TableBodyProps = {
   days: DateTime[];
 };
 
 export const TableBody = ({ days }: TableBodyProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const handlers: SwipeableHandlers = useSwipeable({
+    onSwipedLeft: () => dispatch(shiftRight()),
+    onSwipedRight: () => dispatch(shiftLeft()),
+  });
+
+  // setup ref for your usage
+  const myRef = useRef<HTMLElement | null>(null);
+
+  const refPassthrough = (el: HTMLElement): void => {
+    // call useSwipeable ref prop with el
+    handlers.ref(el);
+    // set myRef el so you can access it yourself
+    myRef.current = el;
+  };
+
   return (
-    <Container>
+    <Container {...handlers} ref={refPassthrough}>
       <Timeline />
       {days.map((day: DateTime): JSX.Element => {
         return <TableColumn key={day.day} day={day} />;

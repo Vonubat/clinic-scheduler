@@ -4,6 +4,7 @@ import { Navigation, TableHeader, TableBody } from 'components';
 import { fillDaysHelper } from 'utils';
 import { useAppSelector } from 'hooks';
 import { timeSelector } from 'store';
+import { AppBar } from '@mui/material';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -21,8 +22,10 @@ export const Scheduler = (): JSX.Element => {
 
   return (
     <Container>
-      <Navigation />
-      <TableHeader days={days} />
+      <AppBar position="sticky" color="inherit">
+        <Navigation />
+        <TableHeader days={days} />
+      </AppBar>
       <TableBody days={days} />
     </Container>
   );

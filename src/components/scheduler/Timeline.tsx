@@ -8,10 +8,10 @@ import { timeSelector } from 'store';
 
 type ContainerProps = {
   children: React.ReactNode;
-  containerEl: MutableRefObject<HTMLElement | null>;
+  refs: MutableRefObject<HTMLElement | null>;
 };
 
-const Container = ({ children, containerEl }: ContainerProps): JSX.Element => {
+const Container = ({ children, refs }: ContainerProps): JSX.Element => {
   return (
     <Box
       sx={{
@@ -21,7 +21,7 @@ const Container = ({ children, containerEl }: ContainerProps): JSX.Element => {
         maxWidth: 40,
         minWidth: 40,
       }}
-      ref={containerEl}
+      ref={refs}
     >
       {children}
     </Box>
@@ -71,7 +71,7 @@ export const Timeline = (): JSX.Element => {
   }, [zoom, windowHeight]);
 
   return (
-    <Container containerEl={ref}>
+    <Container refs={ref}>
       {TIMELINE.map((time: string): JSX.Element => {
         return <Cell key={time}>{time}</Cell>;
       })}
