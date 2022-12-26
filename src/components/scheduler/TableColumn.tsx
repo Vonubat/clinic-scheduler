@@ -1,10 +1,11 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { DateTime } from 'luxon';
-import { TIMELINE, TableView } from 'constants/index';
-import { TableColumnCell } from './TableColumnCell';
+import { TableView, TIMELINE } from 'constants/index';
 import { useAppSelector } from 'hooks';
+import { DateTime } from 'luxon';
 import { timeSelector } from 'store';
+
+import { TableColumnCell } from './TableColumnCell';
 
 type ContainerProps = {
   children: React.ReactNode;

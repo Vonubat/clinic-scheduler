@@ -1,12 +1,12 @@
-export { store } from './store';
-export type { AppDispatch, RootState } from './store';
 export {
-  timeSelector,
   setDateTime,
+  setView,
   shiftLeft,
   shiftRight,
+  timeSelector,
   zoomIn,
   zoomOut,
   zoomReset,
-  setView,
 } from './slices/timeSlice';
+export type { AppDispatch, RootState } from './store';
+export { store } from './store';

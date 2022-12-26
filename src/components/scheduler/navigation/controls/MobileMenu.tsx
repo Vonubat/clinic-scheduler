@@ -1,11 +1,11 @@
-import React, { useState, MouseEvent } from 'react';
-import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
+import React, { MouseEvent, useState } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
 import { Color } from 'constants/index';
 import { useAppDispatch } from 'hooks';
 import { shiftLeft, shiftRight, zoomIn, zoomOut, zoomReset } from 'store';

@@ -1,10 +1,11 @@
 import React from 'react';
+import { AppBar } from '@mui/material';
 import Box from '@mui/material/Box';
-import { Navigation, TableHeader, TableBody } from 'components';
-import { fillDaysHelper } from 'utils';
 import { useAppSelector } from 'hooks';
 import { timeSelector } from 'store';
-import { AppBar } from '@mui/material';
+import { fillDaysHelper } from 'utils';
+
+import { Navigation, TableBody, TableHeader } from 'components';
 
 type ContainerProps = {
   children: React.ReactNode;

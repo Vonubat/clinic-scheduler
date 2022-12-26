@@ -1,8 +1,9 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Color } from 'constants/index';
-import { NavigationDatePicker } from './NavigationDatePicker';
+
 import { Controls } from './controls/Controls';
+import { NavigationDatePicker } from './NavigationDatePicker';
 
 type ContainerProps = {
   children: React.ReactNode;

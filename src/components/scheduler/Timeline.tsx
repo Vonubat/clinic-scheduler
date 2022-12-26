@@ -1,8 +1,8 @@
-import React, { useRef, useState, MutableRefObject, useLayoutEffect } from 'react';
-import { Color, TIMELINE } from 'constants/index';
+import React, { MutableRefObject, useLayoutEffect, useRef, useState } from 'react';
+import { useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
-import { useMediaQuery } from '@mui/material';
+import { Color, TIMELINE } from 'constants/index';
 import { useAppSelector, useWindowDimension } from 'hooks';
 import { timeSelector } from 'store';
 

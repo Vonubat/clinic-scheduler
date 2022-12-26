@@ -2,8 +2,8 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { Color, locale } from 'constants/index';
 import { useAppDispatch } from 'hooks';
-import { setDateTime } from 'store';
 import { DateTime } from 'luxon';
+import { setDateTime } from 'store';
 
 export const ResetDateTime = (): JSX.Element => {
   const dispatch = useAppDispatch();

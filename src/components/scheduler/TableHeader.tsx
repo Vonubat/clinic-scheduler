@@ -1,8 +1,9 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { TableHeaderCell } from './TableHeaderCell';
 import { Color } from 'constants/index';
 import { DateTime } from 'luxon';
+
+import { TableHeaderCell } from './TableHeaderCell';
 
 type ContainerProps = {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { debounce } from 'lodash';
 
 export const useWindowDimension = (): number[] => {

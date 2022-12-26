@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { DateTime } from 'luxon';
 import { Color } from 'constants/index';
+import { DateTime } from 'luxon';
 
 type TableColumnCellProps = {
   time: string;

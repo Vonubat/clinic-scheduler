@@ -1,12 +1,13 @@
 import React from 'react';
+import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Box from '@mui/material/Box';
-import { ShiftLeft, ShiftRight } from './Shifts';
-import { ZoomIn, ZoomOut, ZoomReset } from './Zooms';
-import { ResetDateTime } from './ResetDateTime';
+
 import { CalendarView } from './CalendarView';
 import { MobileMenu } from './MobileMenu';
+import { ResetDateTime } from './ResetDateTime';
+import { ShiftLeft, ShiftRight } from './Shifts';
+import { ZoomIn, ZoomOut, ZoomReset } from './Zooms';
 
 type ContainerProps = {
   children: React.ReactNode;

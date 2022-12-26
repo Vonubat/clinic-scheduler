@@ -1,8 +1,8 @@
 import React from 'react';
-import { IconButton } from '@mui/material';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
+import { IconButton } from '@mui/material';
 import { Color } from 'constants/index';
 import { useAppDispatch } from 'hooks';
 import { zoomIn, zoomOut, zoomReset } from 'store';

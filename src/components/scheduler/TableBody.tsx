@@ -1,12 +1,13 @@
-import React, { useRef, forwardRef } from 'react';
-import Box from '@mui/material/Box';
-import { Timeline } from './Timeline';
-import { DateTime } from 'luxon';
-import { TableColumn } from './TableColumn';
-import { useAppDispatch, useAppSelector } from 'hooks';
-import { timeSelector } from 'store';
+import React, { forwardRef, useRef } from 'react';
 import { SwipeableHandlers, useSwipeable } from 'react-swipeable';
+import Box from '@mui/material/Box';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { DateTime } from 'luxon';
 import { shiftLeft, shiftRight } from 'store';
+import { timeSelector } from 'store';
+
+import { TableColumn } from './TableColumn';
+import { Timeline } from './Timeline';
 
 type ContainerProps = {
   children: React.ReactNode;

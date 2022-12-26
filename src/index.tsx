@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import './index.scss';
-import { App } from './App';
-import { store } from 'store';
 import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
+import { store } from 'store';
+
+import { App } from './App';
+
+import './index.scss';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);

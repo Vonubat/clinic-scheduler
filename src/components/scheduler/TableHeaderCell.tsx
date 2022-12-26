@@ -1,11 +1,11 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import { DateTime } from 'luxon';
 import { Typography } from '@mui/material';
+import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Color, TableView } from 'constants/index';
 import { useAppSelector } from 'hooks';
+import { DateTime } from 'luxon';
 import { timeSelector } from 'store';
 
 type ContainerProps = {

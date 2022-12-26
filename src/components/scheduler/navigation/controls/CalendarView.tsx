@@ -1,6 +1,6 @@
-import React, { useState, MouseEvent } from 'react';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import React, { MouseEvent, useState } from 'react';
 import GridOnIcon from '@mui/icons-material/GridOn';
+import { IconButton, Menu, MenuItem } from '@mui/material';
 import { Color } from 'constants/index';
 import { useAppDispatch } from 'hooks';
 import { setView } from 'store';
