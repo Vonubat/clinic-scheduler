@@ -1,20 +1,23 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { DateTime } from 'luxon';
-import { TIMELINE } from '../../constants';
+import { TIMELINE, TableView } from 'constants/index';
 import { TableColumnCell } from './TableColumnCell';
+import { useAppSelector } from 'hooks';
+import { timeSelector } from 'store';
 
 type ContainerProps = {
   children: React.ReactNode;
 };
 
 const Container = ({ children }: ContainerProps): JSX.Element => {
+  const { view } = useAppSelector(timeSelector);
   return (
     <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        width: '14.285714%',
+        width: TableView[`$${view}`],
       }}
     >
       {children}

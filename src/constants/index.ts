@@ -35,3 +35,9 @@ export enum Color {
   black100 = 'rgba(0, 0, 0, 1)',
   blueViolet100 = 'rgba(138, 43, 226, 1)',
 }
+
+export enum TableView {
+  $7 = '14.285714%',
+  $3 = '33.333333%',
+  $1 = '100%',
+}

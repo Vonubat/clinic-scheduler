@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { TableHeaderCell } from './TableHeaderCell';
-import { Color } from '../../constants';
+import { Color } from 'constants/index';
 import { DateTime } from 'luxon';
 
 type ContainerProps = {

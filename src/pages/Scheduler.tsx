@@ -16,8 +16,8 @@ const Container = ({ children }: ContainerProps): JSX.Element => {
 };
 
 export const Scheduler = (): JSX.Element => {
-  const { dt } = useAppSelector(timeSelector);
-  const days = fillDaysHelper(dt);
+  const { dt, view } = useAppSelector(timeSelector);
+  const days = fillDaysHelper(dt, view);
 
   return (
     <Container>

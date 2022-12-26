@@ -4,7 +4,9 @@ import { DateTime } from 'luxon';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Color } from '../../constants';
+import { Color, TableView } from 'constants/index';
+import { useAppSelector } from 'hooks';
+import { timeSelector } from 'store';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -12,9 +14,10 @@ type ContainerProps = {
 };
 
 const Container = ({ children, day }: ContainerProps): JSX.Element => {
+  const { view } = useAppSelector(timeSelector);
+  const diff: number = day.diffNow('days').days;
   let backgroundColor: Color = Color.white100;
   let color: Color = Color.black100;
-  const diff: number = day.diffNow('days').days;
 
   if (diff > -1 && diff < 0) {
     backgroundColor = Color.forestGreen100;
@@ -31,7 +34,7 @@ const Container = ({ children, day }: ContainerProps): JSX.Element => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        width: '14.285714%',
+        width: TableView[`$${view}`],
         px: 0.5,
         border: `0.5px solid ${Color.gainsboro100}`,
         backgroundColor,

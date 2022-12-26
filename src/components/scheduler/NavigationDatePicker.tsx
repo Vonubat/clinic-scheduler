@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import React, { useEffect, useState } from 'react';
+import { MobileDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 import { Button, TextField } from '@mui/material';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
@@ -7,11 +7,17 @@ import { useAppSelector, useAppDispatch } from 'hooks';
 import { timeSelector } from 'store';
 import { Color, locale } from '../../constants';
 import { setDateTime } from 'store/slices/timeSlice';
+import { DateTime } from 'luxon';
 
 export const NavigationDatePicker = () => {
   const { dt } = useAppSelector(timeSelector);
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [date, setDate] = useState<DateTime>(dt);
+
+  useEffect(() => {
+    setDate(dt);
+  }, [dt]);
 
   return (
     <React.Fragment>
@@ -21,13 +27,14 @@ export const NavigationDatePicker = () => {
           onClick={() => setIsOpen(!isOpen)}
           endIcon={<ExpandCircleDownIcon />}
         >{`${dt.monthLong} ${dt.year}`}</Button>
-        <DatePicker
+        <MobileDatePicker
           disableMaskedInput
+          value={date}
           open={isOpen}
           onClose={() => setIsOpen(false)}
-          value={dt}
-          onChange={(date) => date && dispatch(setDateTime(date))}
-          renderInput={(params) => <TextField sx={{ visibility: 'hidden' }} {...params} />}
+          onChange={(value) => value && setDate(value)}
+          onAccept={(date) => date && dispatch(setDateTime(date))}
+          renderInput={(params) => <TextField sx={{ display: 'none' }} {...params} />}
         />
       </LocalizationProvider>
     </React.Fragment>

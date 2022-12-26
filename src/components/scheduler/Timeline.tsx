@@ -1,5 +1,5 @@
 import React from 'react';
-import { TIMELINE } from '../../constants';
+import { TIMELINE } from 'constants/index';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
