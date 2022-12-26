@@ -1,11 +1,4 @@
-import { Info } from 'luxon';
-
 export const locale = 'ru';
-
-export const DAYS_SHORT: string[] = Info.weekdays('short', { locale });
-export const DAYS_LONG: string[] = Info.weekdays('long', { locale });
-export const MONTHS_SHORT: string[] = Info.months('short', { locale });
-export const MONTHS_LONG: string[] = Info.months('long', { locale });
 
 export const TIMELINE: string[] = [
   '00:00',
@@ -34,6 +27,10 @@ export const TIMELINE: string[] = [
   '23:00',
 ];
 
-export enum MediaQuery {
-  md = '(min-width:1024px)',
+export enum Color {
+  gainsboro100 = 'rgba(220, 220, 220, 1)',
+  white100 = 'rgba(255, 255, 255, 1)',
+  forestGreen100 = 'rgba(34, 139, 34, 1)',
+  forestGreen010 = 'rgba(34, 139, 34, 0.1)',
+  black100 = 'rgba(0, 0, 0, 1)',
 }

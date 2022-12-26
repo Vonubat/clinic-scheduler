@@ -8,6 +8,7 @@ type TimeState = {
 
 const initialState: TimeState = {
   dt: DateTime.now().setLocale(locale),
+  // dt: DateTime.local(2022, 12, 24, 8, 30),
 };
 
 const timeSlice = createSlice({
