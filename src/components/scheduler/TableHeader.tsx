@@ -1,10 +1,8 @@
 import React from 'react';
-import { useAppSelector } from 'hooks';
-import { timeSelector } from 'store';
 import Box from '@mui/material/Box';
-import { fillDaysHelper } from 'utils';
 import { TableHeaderCell } from './TableHeaderCell';
 import { Color } from '../../constants';
+import { DateTime } from 'luxon';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -15,17 +13,20 @@ const Container = ({ children }: ContainerProps): JSX.Element => {
 };
 
 const EmptyCell = (): JSX.Element => {
-  return <Box sx={{ maxWidth: 40, minWidth: 40, border: `0.5px solid ${Color.gainsboro100}` }} />;
+  return (
+    <Box sx={{ maxWidth: 40, minWidth: 40, borderBottom: `0.5px solid ${Color.gainsboro100}` }} />
+  );
 };
 
-export const TableHeader = (): JSX.Element => {
-  const { dt } = useAppSelector(timeSelector);
-  const days = fillDaysHelper(dt);
+type TableHeaderProps = {
+  days: DateTime[];
+};
 
+export const TableHeader = ({ days }: TableHeaderProps): JSX.Element => {
   return (
     <Container>
       <EmptyCell />
-      {days.map((day): JSX.Element => {
+      {days.map((day: DateTime): JSX.Element => {
         return <TableHeaderCell key={day.day} day={day} />;
       })}
     </Container>

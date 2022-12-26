@@ -31,7 +31,7 @@ const Container = ({ children, day }: ContainerProps): JSX.Element => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        flexGrow: 1,
+        width: '14.285714%',
         px: 0.5,
         border: `0.5px solid ${Color.gainsboro100}`,
         backgroundColor,

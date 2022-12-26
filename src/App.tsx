@@ -3,7 +3,7 @@ import { Scheduler } from 'pages';
 
 export const App = (): JSX.Element => {
   return (
-    <div className="App">
+    <div>
       <Scheduler />
     </div>
   );

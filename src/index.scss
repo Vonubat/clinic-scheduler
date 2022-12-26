@@ -17,3 +17,26 @@ code {
   flex-direction: column;
   min-height: 100vh;
 }
+
+@media only screen and (max-width: 640px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+/* @media only screen and (max-width: 900px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media only screen and (max-width: 1536px) {
+  html {
+    font-size: 100%;
+  }
+} ;
+ */
