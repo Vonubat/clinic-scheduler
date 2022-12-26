@@ -5,7 +5,7 @@ import { Button, TextField } from '@mui/material';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { useAppSelector, useAppDispatch } from 'hooks';
 import { timeSelector } from 'store';
-import { Color, locale } from '../../constants';
+import { Color, locale } from 'constants/index';
 import { setDateTime } from 'store/slices/timeSlice';
 import { DateTime } from 'luxon';
 
