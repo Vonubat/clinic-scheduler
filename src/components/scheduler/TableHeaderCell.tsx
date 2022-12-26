@@ -51,10 +51,21 @@ type MonthAndEventsWrapperProps = {
 const MonthAndEventsWrapper = ({ day, isBreakpoint }: MonthAndEventsWrapperProps): JSX.Element => {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Typography sx={{ textTransform: 'capitalize' }}>
+      <Typography
+        sx={{
+          textTransform: 'capitalize',
+          fontSize: isBreakpoint ? '70%' : '100%',
+        }}
+      >
         {isBreakpoint ? day.monthShort : day.monthLong}
       </Typography>
-      <Typography>{0}</Typography>
+      <Typography
+        sx={{
+          fontSize: isBreakpoint ? '70%' : '100%',
+        }}
+      >
+        {0}
+      </Typography>
     </Box>
   );
 };
@@ -72,12 +83,19 @@ const DayTypography = ({ day }: DayTypographyProps): JSX.Element => {
 };
 
 type WeekdayTypographyProps = {
+  isBreakpoint: boolean;
   day: DateTime;
 };
 
-const WeekdayTypography = ({ day }: WeekdayTypographyProps): JSX.Element => {
+const WeekdayTypography = ({ day, isBreakpoint }: WeekdayTypographyProps): JSX.Element => {
   return (
-    <Typography sx={{ textAlign: 'right', textTransform: 'uppercase' }}>
+    <Typography
+      sx={{
+        textAlign: 'right',
+        textTransform: 'uppercase',
+        fontSize: isBreakpoint ? '70%' : '100%',
+      }}
+    >
       {day.weekdayShort}
     </Typography>
   );
@@ -94,7 +112,7 @@ export const TableHeaderCell = ({ day }: TableHeaderCellProps): JSX.Element => {
     <Container day={day}>
       <MonthAndEventsWrapper day={day} isBreakpoint={isBreakpoint} />
       <DayTypography day={day} />
-      <WeekdayTypography day={day} />
+      <WeekdayTypography day={day} isBreakpoint={isBreakpoint} />
     </Container>
   );
 };
