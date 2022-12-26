@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Color } from '../../constants';
+import { NavigationDatePicker } from './NavigationDatePicker';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -11,5 +12,9 @@ const Container = ({ children }: ContainerProps): JSX.Element => {
 };
 
 export const Navigation = (): JSX.Element => {
-  return <Container>Hello world!</Container>;
+  return (
+    <Container>
+      <NavigationDatePicker />
+    </Container>
+  );
 };
