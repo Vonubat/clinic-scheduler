@@ -1,18 +1,26 @@
 import React from 'react';
 import { TIMELINE } from '../../constants';
 import Box from '@mui/material/Box';
-import styled from '@emotion/styled';
 
-const Container = styled(Box)({
-  display: 'flex',
-  flexDirection: 'column',
-  maxWidth: 40,
-  minWidth: 40,
-});
+type ContainerProps = {
+  children: React.ReactNode;
+};
 
-const Cell = styled(Box)({
-  height: '100%',
-});
+const Container = ({ children }: ContainerProps): JSX.Element => {
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth: 40, minWidth: 40 }}>
+      {children}
+    </Box>
+  );
+};
+
+type CellProps = {
+  children: React.ReactNode;
+};
+
+const Cell = ({ children }: CellProps): JSX.Element => {
+  return <Box sx={{ height: '100%' }}>{children}</Box>;
+};
 
 export const Timeline = (): JSX.Element => {
   return (

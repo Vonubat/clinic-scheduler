@@ -1,12 +1,14 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import styled from '@emotion/styled';
 import { Timeline } from './Timeline';
 
-const Container = styled(Box)({
-  display: 'flex',
-  height: '200vh',
-});
+type ContainerProps = {
+  children: React.ReactNode;
+};
+
+const Container = ({ children }: ContainerProps): JSX.Element => {
+  return <Box sx={{ display: 'flex', height: '200vh' }}>{children}</Box>;
+};
 
 export const TableBody = (): JSX.Element => {
   return (

@@ -1,13 +1,16 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { TableHeader, TableBody } from 'components';
-import styled from '@emotion/styled';
 
-const Container = styled(Box)({
-  display: 'flex',
-  flexDirection: 'column',
-  userSelect: 'none',
-});
+type ContainerProps = {
+  children: React.ReactNode;
+};
+
+const Container = ({ children }: ContainerProps): JSX.Element => {
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', userSelect: 'none' }}>{children}</Box>
+  );
+};
 
 export const Scheduler = (): JSX.Element => {
   return (
