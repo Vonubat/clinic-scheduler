@@ -33,4 +33,5 @@ export enum Color {
   forestGreen100 = 'rgba(34, 139, 34, 1)',
   forestGreen010 = 'rgba(34, 139, 34, 0.1)',
   black100 = 'rgba(0, 0, 0, 1)',
+  blueViolet100 = 'rgba(138, 43, 226, 1)',
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { TableHeader, TableBody } from 'components';
+import { Navigation, TableHeader, TableBody } from 'components';
 import { fillDaysHelper } from 'utils';
 import { useAppSelector } from 'hooks';
 import { timeSelector } from 'store';
@@ -21,6 +21,7 @@ export const Scheduler = (): JSX.Element => {
 
   return (
     <Container>
+      <Navigation />
       <TableHeader days={days} />
       <TableBody days={days} />
     </Container>
