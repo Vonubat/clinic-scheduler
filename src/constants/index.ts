@@ -34,6 +34,7 @@ export enum Color {
   forestGreen010 = 'rgba(34, 139, 34, 0.1)',
   black100 = 'rgba(0, 0, 0, 1)',
   blueViolet100 = 'rgba(138, 43, 226, 1)',
+  red100 = 'rgba(255, 0, 0, 1)',
 }
 
 export enum TableView {
