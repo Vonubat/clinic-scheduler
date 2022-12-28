@@ -4,6 +4,7 @@ import { Color } from 'constants/index';
 
 import { Controls } from './controls/Controls';
 import { NavigationDatePicker } from './NavigationDatePicker';
+import { ToHome } from './ToHome';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -24,10 +25,21 @@ const Container = ({ children }: ContainerProps): JSX.Element => {
   );
 };
 
+type GroupProps = {
+  children: React.ReactNode;
+};
+
+const Group = ({ children }: GroupProps): JSX.Element => {
+  return <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>{children}</Box>;
+};
+
 export const Navigation = (): JSX.Element => {
   return (
     <Container>
-      <NavigationDatePicker />
+      <Group>
+        <ToHome />
+        <NavigationDatePicker />
+      </Group>
       <Controls />
     </Container>
   );

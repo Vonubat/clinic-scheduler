@@ -11,10 +11,11 @@ import { ZoomIn, ZoomOut, ZoomReset } from './Zooms';
 
 type ContainerProps = {
   children: React.ReactNode;
+  isBreakpoint: boolean;
 };
 
-const Container = ({ children }: ContainerProps): JSX.Element => {
-  return <Box sx={{ display: 'flex', gap: 2 }}>{children}</Box>;
+const Container = ({ children, isBreakpoint }: ContainerProps): JSX.Element => {
+  return <Box sx={{ display: 'flex', gap: isBreakpoint ? 0 : 2 }}>{children}</Box>;
 };
 
 type GroupProps = {
@@ -28,7 +29,7 @@ const Group = ({ children }: GroupProps): JSX.Element => {
 export const Controls = (): JSX.Element => {
   const isBreakpoint: boolean = useMediaQuery(useTheme().breakpoints.down('sm'));
   return (
-    <Container>
+    <Container isBreakpoint={isBreakpoint}>
       {!isBreakpoint && (
         <Group>
           <ShiftLeft />

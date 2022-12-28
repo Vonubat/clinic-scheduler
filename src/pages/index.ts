@@ -1,2 +1,2 @@
-export { Main } from './Main';
+export { Home } from './Home';
 export { Scheduler } from './Scheduler';

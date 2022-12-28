@@ -14,7 +14,7 @@ export const ResetDateTime = (): JSX.Element => {
         color: Color.white100,
         fontSize: '120%',
         p: 0,
-        maxWidth: 30,
+        minWidth: 40,
         border: `1px solid ${Color.white100}`,
       }}
       onClick={() => dispatch(setDateTime(dt))}

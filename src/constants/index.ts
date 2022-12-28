@@ -33,7 +33,7 @@ export enum TableView {
 }
 
 export enum Path {
-  main = '/',
+  home = '/',
   scheduler = '/scheduler',
   any = '*',
 }

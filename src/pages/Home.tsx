@@ -52,7 +52,7 @@ const SchedulerLink = ({ children, type }: SchedulerLinkProps): JSX.Element => {
   );
 };
 
-export const Main = (): JSX.Element => {
+export const Home = (): JSX.Element => {
   return (
     <Container>
       <SchedulerLink type="work">График работы</SchedulerLink>
