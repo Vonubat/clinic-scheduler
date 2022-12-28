@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar } from '@mui/material';
 import Box from '@mui/material/Box';
 import { useAppSelector } from 'hooks';
-import { timeSelector } from 'store';
+import { schedulerSelector } from 'store';
 import { fillDaysHelper } from 'utils';
 
 import { Navigation, TableBody, TableHeader } from 'components';
@@ -13,12 +13,14 @@ type ContainerProps = {
 
 const Container = ({ children }: ContainerProps): JSX.Element => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', userSelect: 'none' }}>{children}</Box>
+    <Box component="main" sx={{ display: 'flex', flexDirection: 'column', userSelect: 'none' }}>
+      {children}
+    </Box>
   );
 };
 
 export const Scheduler = (): JSX.Element => {
-  const { dt, view } = useAppSelector(timeSelector);
+  const { dt, view } = useAppSelector(schedulerSelector);
   const days = fillDaysHelper(dt, view);
 
   return (

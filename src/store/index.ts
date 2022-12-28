@@ -1,12 +1,13 @@
 export {
+  schedulerSelector,
   setDateTime,
+  setType,
   setView,
   shiftLeft,
   shiftRight,
-  timeSelector,
   zoomIn,
   zoomOut,
   zoomReset,
-} from './slices/timeSlice';
+} from './slices/schedulerSlice';
 export type { AppDispatch, RootState } from './store';
 export { store } from './store';

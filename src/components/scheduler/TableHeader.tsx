@@ -15,7 +15,14 @@ const Container = ({ children }: ContainerProps): JSX.Element => {
 
 const EmptyCell = (): JSX.Element => {
   return (
-    <Box sx={{ maxWidth: 40, minWidth: 40, borderBottom: `0.5px solid ${Color.gainsboro100}` }} />
+    <Box
+      sx={{
+        maxWidth: 40,
+        minWidth: 40,
+        borderBottom: `0.5px solid ${Color.gainsboro100}`,
+        borderTop: `0.5px solid ${Color.gainsboro100}`,
+      }}
+    />
   );
 };
 

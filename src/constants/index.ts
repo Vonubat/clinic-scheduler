@@ -31,3 +31,9 @@ export enum TableView {
   $3 = '33.333333%',
   $1 = '100%',
 }
+
+export enum Path {
+  main = '/',
+  scheduler = '/scheduler',
+  any = '*',
+}

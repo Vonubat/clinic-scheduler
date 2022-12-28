@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
 import { store } from 'store';
 
@@ -17,7 +18,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

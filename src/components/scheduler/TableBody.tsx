@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
 import { shiftLeft, shiftRight } from 'store';
-import { timeSelector } from 'store';
+import { schedulerSelector } from 'store';
 
 import { TableColumn } from './TableColumn';
 import { Timeline } from './Timeline';
@@ -15,7 +15,7 @@ type ContainerProps = {
 
 const Container = forwardRef(
   ({ children }: ContainerProps, ref: React.ForwardedRef<unknown>): JSX.Element => {
-    const { zoom } = useAppSelector(timeSelector);
+    const { zoom } = useAppSelector(schedulerSelector);
     return (
       <Box sx={{ display: 'flex', height: `${zoom}vh` }} ref={ref}>
         {children}

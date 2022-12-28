@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import { Color, TIMELINE } from 'constants/index';
 import { useAppSelector, useWindowDimension } from 'hooks';
-import { timeSelector } from 'store';
+import { schedulerSelector } from 'store';
 import { getAbsolutePosition } from 'utils';
 
 type ContainerProps = {
@@ -43,7 +43,7 @@ type TimeStampProps = {
 };
 
 const TimeStamp = ({ height }: TimeStampProps): JSX.Element => {
-  const { dt } = useAppSelector(timeSelector);
+  const { dt } = useAppSelector(schedulerSelector);
   const position: number = getAbsolutePosition(dt, height);
 
   return (
@@ -60,7 +60,7 @@ const TimeStamp = ({ height }: TimeStampProps): JSX.Element => {
 };
 
 export const Timeline = (): JSX.Element => {
-  const { zoom } = useAppSelector(timeSelector);
+  const { zoom } = useAppSelector(schedulerSelector);
   const [, windowHeight] = useWindowDimension();
   const [height, setHeight] = useState(0);
   const ref = useRef<null | HTMLElement>(null);

@@ -1,22 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { locale } from 'constants/index';
 import { DateTime } from 'luxon';
-import { CalendarView } from 'types';
+import { CalendarView, SchedulerType } from 'types';
 
-type TimeState = {
+type SchedulerState = {
   dt: DateTime;
   zoom: number;
   view: CalendarView;
+  type: SchedulerType;
 };
 
-const initialState: TimeState = {
+const initialState: SchedulerState = {
   dt: DateTime.now().setLocale(locale),
   zoom: 200,
   view: 7,
+  type: 'record',
 };
 
-const timeSlice = createSlice({
-  name: 'time',
+const schedulerSlice = createSlice({
+  name: 'scheduler',
   initialState,
   reducers: {
     setDateTime: (state, { payload }: PayloadAction<DateTime>) => {
@@ -46,12 +48,16 @@ const timeSlice = createSlice({
     setView: (state, { payload }: PayloadAction<CalendarView>) => {
       state.view = payload;
     },
+    setType: (state, { payload }: PayloadAction<SchedulerType>) => {
+      state.type = payload;
+    },
   },
 });
 
-export default timeSlice.reducer;
+export default schedulerSlice.reducer;
 
-export const { setDateTime, shiftLeft, shiftRight, zoomIn, zoomOut, zoomReset, setView } =
-  timeSlice.actions;
+export const { setDateTime, shiftLeft, shiftRight, zoomIn, zoomOut, zoomReset, setView, setType } =
+  schedulerSlice.actions;
 
-export const timeSelector = (state: { timeStore: TimeState }) => state.timeStore;
+export const schedulerSelector = (state: { schedulerStore: SchedulerState }) =>
+  state.schedulerStore;

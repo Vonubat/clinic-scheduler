@@ -6,7 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Color, TableView } from 'constants/index';
 import { useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
-import { timeSelector } from 'store';
+import { schedulerSelector } from 'store';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ type ContainerProps = {
 };
 
 const Container = ({ children, day }: ContainerProps): JSX.Element => {
-  const { view } = useAppSelector(timeSelector);
+  const { view } = useAppSelector(schedulerSelector);
   const diff: number = day.diffNow('days').days;
   let backgroundColor: Color = Color.white100;
   let color: Color = Color.black100;

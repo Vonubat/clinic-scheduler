@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { TableView, TIMELINE } from 'constants/index';
 import { useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
-import { timeSelector } from 'store';
+import { schedulerSelector } from 'store';
 
 import { TableColumnCell } from './TableColumnCell';
 
@@ -12,7 +12,7 @@ type ContainerProps = {
 };
 
 const Container = ({ children }: ContainerProps): JSX.Element => {
-  const { view } = useAppSelector(timeSelector);
+  const { view } = useAppSelector(schedulerSelector);
   return (
     <Box
       sx={{
