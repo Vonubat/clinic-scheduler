@@ -1,7 +1,10 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Color } from 'constants/index';
+import { useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
+import { schedulerSelector } from 'store';
+import { fillDaysHelper } from 'utils';
 
 import { TableHeaderCell } from './TableHeaderCell';
 
@@ -26,11 +29,10 @@ const EmptyCell = (): JSX.Element => {
   );
 };
 
-type TableHeaderProps = {
-  days: DateTime[];
-};
+export const TableHeader = (): JSX.Element => {
+  const { dt, view } = useAppSelector(schedulerSelector);
+  const days = fillDaysHelper(dt, view);
 
-export const TableHeader = ({ days }: TableHeaderProps): JSX.Element => {
   return (
     <Container>
       <EmptyCell />

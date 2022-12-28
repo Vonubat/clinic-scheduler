@@ -7,7 +7,7 @@ export const getAbsolutePosition = (dt: DateTime, height: number): number => {
     return position;
   }
 
-  if (dt.hour > 22) {
+  if (dt.hour > 21) {
     position = height;
     return position;
   }

@@ -1,3 +1,2 @@
-export { Navigation } from './scheduler/navigation/Navigation';
+export { SchedulerHeader } from './scheduler/SchedulerHeader';
 export { TableBody } from './scheduler/TableBody';
-export { TableHeader } from './scheduler/TableHeader';

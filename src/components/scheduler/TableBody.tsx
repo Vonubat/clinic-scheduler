@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
 import { shiftLeft, shiftRight } from 'store';
 import { schedulerSelector } from 'store';
+import { fillDaysHelper } from 'utils';
 
 import { TableColumn } from './TableColumn';
 import { Timeline } from './Timeline';
@@ -24,11 +25,8 @@ const Container = forwardRef(
   }
 );
 
-type TableBodyProps = {
-  days: DateTime[];
-};
-
-export const TableBody = ({ days }: TableBodyProps): JSX.Element => {
+export const TableBody = (): JSX.Element => {
+  const { dt, view } = useAppSelector(schedulerSelector);
   const dispatch = useAppDispatch();
   const handlers: SwipeableHandlers = useSwipeable({
     onSwipedLeft: () => dispatch(shiftRight()),
@@ -44,6 +42,8 @@ export const TableBody = ({ days }: TableBodyProps): JSX.Element => {
     // set myRef el so you can access it yourself
     myRef.current = el;
   };
+
+  const days = fillDaysHelper(dt, view);
 
   return (
     <Container {...handlers} ref={refPassthrough}>

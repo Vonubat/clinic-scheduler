@@ -13,6 +13,7 @@ type ContainerProps = {
 const Container = ({ children }: ContainerProps): JSX.Element => {
   return (
     <Box
+      component="nav"
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
