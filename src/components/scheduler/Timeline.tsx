@@ -5,6 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { Color, TIMELINE } from 'constants/index';
 import { useAppSelector, useWindowDimension } from 'hooks';
 import { timeSelector } from 'store';
+import { getAbsolutePosition } from 'utils';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -43,7 +44,7 @@ type TimeStampProps = {
 
 const TimeStamp = ({ height }: TimeStampProps): JSX.Element => {
   const { dt } = useAppSelector(timeSelector);
-  const position = ((dt.hour * 60 + dt.minute) / (24 * 60)) * height;
+  const position: number = getAbsolutePosition(dt, height);
 
   return (
     <Box
