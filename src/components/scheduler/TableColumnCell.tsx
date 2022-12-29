@@ -14,7 +14,6 @@ type TableColumnCellProps = {
   day: DateTime;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const TableColumnCell = ({ day, time }: TableColumnCellProps): JSX.Element => {
   const { type } = useAppSelector(schedulerSelector);
   const isBreakpoint: boolean = useMediaQuery(useTheme().breakpoints.down('md'));
@@ -29,7 +28,9 @@ export const TableColumnCell = ({ day, time }: TableColumnCellProps): JSX.Elemen
         borderRight: Border.cell,
       }}
     >
-      {type === 'work' && <CabinetsWrapper isBreakpoint={isBreakpoint} isEmpty={true} />}
+      {type === 'work' && (
+        <CabinetsWrapper isBreakpoint={isBreakpoint} isEmpty={true} day={day} time={time} />
+      )}
     </Box>
   );
 };

@@ -1,13 +1,21 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Border, CABINETS, Color } from 'constants/index';
+import { DateTime } from 'luxon';
 
 type CabinetsWrapperProps = {
   isBreakpoint: boolean;
   isEmpty: boolean;
+  time?: string;
+  day?: DateTime;
 };
 
-export const CabinetsWrapper = ({ isBreakpoint, isEmpty }: CabinetsWrapperProps): JSX.Element => {
+export const CabinetsWrapper = ({
+  isBreakpoint,
+  isEmpty,
+  time,
+  day,
+}: CabinetsWrapperProps): JSX.Element => {
   return (
     <Box
       sx={{
@@ -29,9 +37,14 @@ export const CabinetsWrapper = ({ isBreakpoint, isEmpty }: CabinetsWrapperProps)
       }}
     >
       {CABINETS.map((cabinet: string): JSX.Element => {
+        const clickHandler = () => {
+          console.log(`CabinetIs ${cabinet}, day is ${day?.day}, time is ${time}`);
+        };
+
         return (
           <Box
             key={cabinet}
+            onClick={clickHandler}
             sx={{
               flexGrow: '1',
               backgroundColor: Color.white100,
