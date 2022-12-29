@@ -17,6 +17,7 @@ export const TIMELINE: string[] = [
 ];
 
 export enum Color {
+  transparent = 'transparent',
   gainsboro100 = 'rgba(220, 220, 220, 1)',
   white100 = 'rgba(255, 255, 255, 1)',
   forestGreen100 = 'rgba(34, 139, 34, 1)',
@@ -25,6 +26,11 @@ export enum Color {
   blueViolet100 = 'rgba(138, 43, 226, 1)',
   red100 = 'rgba(255, 0, 0, 1)',
 }
+
+export const Border = {
+  cell: `0.5px solid ${Color.gainsboro100}`,
+  button: `1px solid ${Color.white100}`,
+};
 
 export enum TableView {
   $7 = '14.285714%',
@@ -37,3 +43,5 @@ export enum Path {
   scheduler = '/scheduler',
   any = '*',
 }
+
+export const CABINETS: string[] = ['1', '2', '3'];

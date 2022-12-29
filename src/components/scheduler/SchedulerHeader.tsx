@@ -6,7 +6,7 @@ import { TableHeader } from './TableHeader';
 
 export const SchedulerHeader = (): JSX.Element => {
   return (
-    <AppBar position="sticky" color="inherit">
+    <AppBar position="sticky" color="inherit" sx={{ userSelect: 'none' }}>
       <Navigation />
       <TableHeader />
     </AppBar>
