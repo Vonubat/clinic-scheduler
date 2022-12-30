@@ -1,6 +1,6 @@
 export type CalendarView = 1 | 3 | 7;
 
-export type SchedulerType = 'work' | 'customer';
+export type SchedulerType = 'work' | 'user';
 
 export interface WorkData {
   master: string;

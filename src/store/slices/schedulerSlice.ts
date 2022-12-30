@@ -17,7 +17,7 @@ const initialState: SchedulerState = {
   zoom: 200,
   tableHeight: 0,
   view: 7,
-  type: 'customer',
+  type: 'user',
   workData: [
     {
       master: 'Master #1',
@@ -34,7 +34,7 @@ const initialState: SchedulerState = {
     {
       master: 'Master #2',
       color: 'blue',
-      cabinet: 3,
+      cabinet: 2,
       year: DateTime.now().setLocale(locale).year,
       month: DateTime.now().setLocale(locale).month,
       day: DateTime.now().setLocale(locale).day,
@@ -42,6 +42,18 @@ const initialState: SchedulerState = {
       endTimeHours: 12,
       startTimeMinutes: 30,
       endTimeMinutes: 30,
+    },
+    {
+      master: 'Master #3',
+      color: 'green',
+      cabinet: 3,
+      year: DateTime.now().setLocale(locale).year,
+      month: DateTime.now().setLocale(locale).month,
+      day: DateTime.now().setLocale(locale).day,
+      startTimeHours: 16,
+      endTimeHours: 17,
+      startTimeMinutes: 10,
+      endTimeMinutes: 40,
     },
   ],
 };

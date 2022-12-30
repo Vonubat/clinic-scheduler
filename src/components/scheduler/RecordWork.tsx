@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { locale } from 'constants/index';
+import { CABINETS, locale } from 'constants/index';
 import { DateTime } from 'luxon';
 import { WorkData } from 'types';
 import { getAbsolutePosition } from 'utils';
@@ -38,8 +38,9 @@ export const RecordWork = ({ heightOfContainer, data }: RecordProps): JSX.Elemen
       sx={{
         position: 'absolute',
         top: `${positionStart}px`,
+        left: `${(cabinet - 1) * (100 / CABINETS.length)}%`,
+        width: `${100 / CABINETS.length}%`,
         height: `${heightOfRecord}px`,
-        width: 1,
         backgroundColor: color,
       }}
     ></Box>
