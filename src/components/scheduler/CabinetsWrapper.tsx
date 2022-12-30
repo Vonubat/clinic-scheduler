@@ -36,8 +36,8 @@ export const CabinetsWrapper = ({
         },
       }}
     >
-      {CABINETS.map((cabinet: string): JSX.Element => {
-        const clickHandler = () => {
+      {CABINETS.map((cabinet: number): JSX.Element => {
+        const clickHandler = (): void => {
           console.log(`CabinetIs ${cabinet}, day is ${day?.day}, time is ${time}`);
         };
 

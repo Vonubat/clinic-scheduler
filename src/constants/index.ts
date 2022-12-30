@@ -44,4 +44,4 @@ export enum Path {
   any = '*',
 }
 
-export const CABINETS: string[] = ['1', '2', '3'];
+export const CABINETS: number[] = [1, 2, 3];

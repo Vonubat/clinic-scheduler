@@ -56,7 +56,7 @@ export const Home = (): JSX.Element => {
   return (
     <Container>
       <SchedulerLink type="work">График работы</SchedulerLink>
-      <SchedulerLink type="record">График записей</SchedulerLink>
+      <SchedulerLink type="customer">График записей</SchedulerLink>
     </Container>
   );
 };
