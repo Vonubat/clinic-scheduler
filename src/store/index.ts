@@ -1,6 +1,7 @@
 export {
   schedulerSelector,
   setDateTime,
+  setTableHeight,
   setType,
   setView,
   shiftLeft,

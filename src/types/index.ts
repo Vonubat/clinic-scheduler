@@ -1,3 +1,16 @@
 export type CalendarView = 1 | 3 | 7;
 
-export type SchedulerType = 'work' | 'record';
+export type SchedulerType = 'work' | 'user';
+
+export interface WorkData {
+  master: string;
+  color: string;
+  cabinet: number;
+  year: number;
+  month: number;
+  day: number;
+  startTimeHours: number;
+  endTimeHours: number;
+  startTimeMinutes: number;
+  endTimeMinutes: number;
+}

@@ -45,7 +45,7 @@ const SchedulerLink = ({ children, type }: SchedulerLinkProps): JSX.Element => {
       to={Path.scheduler}
       variant="contained"
       onClick={clickHandler}
-      sx={{ height: 200, width: 300, fontSize: 25 }}
+      sx={{ height: 200, width: 300, fontSize: 25, textAlign: 'center' }}
     >
       {children}
     </Button>
@@ -56,7 +56,7 @@ export const Home = (): JSX.Element => {
   return (
     <Container>
       <SchedulerLink type="work">График работы</SchedulerLink>
-      <SchedulerLink type="record">График записей</SchedulerLink>
+      <SchedulerLink type="user">График пользователей</SchedulerLink>
     </Container>
   );
 };
