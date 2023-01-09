@@ -9,6 +9,7 @@ type SchedulerState = {
   tableHeight: number;
   view: CalendarView;
   type: SchedulerType;
+  dialogIsOpen: boolean;
   workData: WorkData[];
 };
 
@@ -18,6 +19,7 @@ const initialState: SchedulerState = {
   tableHeight: 0,
   view: 7,
   type: 'user',
+  dialogIsOpen: false,
   workData: [
     {
       master: 'Master #1',

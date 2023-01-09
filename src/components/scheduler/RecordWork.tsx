@@ -1,6 +1,7 @@
 import React from 'react';
+import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import { CABINETS, locale } from 'constants/index';
+import { CABINETS, Color, locale } from 'constants/index';
 import { DateTime } from 'luxon';
 import { WorkData } from 'types';
 import { getAbsolutePosition } from 'utils';
@@ -11,18 +12,8 @@ type RecordProps = {
 };
 
 export const RecordWork = ({ heightOfContainer, data }: RecordProps): JSX.Element => {
-  const {
-    master,
-    color,
-    cabinet,
-    year,
-    month,
-    day,
-    startTimeHours,
-    endTimeHours,
-    startTimeMinutes,
-    endTimeMinutes,
-  } = data;
+  const { master, color, cabinet, startTimeHours, endTimeHours, startTimeMinutes, endTimeMinutes } =
+    data;
   const positionStart: number = getAbsolutePosition(
     DateTime.now().setLocale(locale).set({ hour: startTimeHours, minute: startTimeMinutes }),
     heightOfContainer
@@ -43,6 +34,13 @@ export const RecordWork = ({ heightOfContainer, data }: RecordProps): JSX.Elemen
         height: `${heightOfRecord}px`,
         backgroundColor: color,
       }}
-    ></Box>
+    >
+      <Typography variant="subtitle2" noWrap sx={{ color: Color.white100 }}>
+        {master}
+      </Typography>
+      <Typography variant="subtitle2" noWrap sx={{ color: Color.white100 }}>
+        {`${startTimeHours}:${startTimeMinutes}-${endTimeHours}:${endTimeMinutes}`}
+      </Typography>
+    </Box>
   );
 };
