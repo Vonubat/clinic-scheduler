@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import { Color, locale } from 'constants/index';
+import { Border, Color, locale } from 'constants/index';
 import { useAppDispatch } from 'hooks';
 import { DateTime } from 'luxon';
 import { setDateTime } from 'store';
@@ -14,8 +14,8 @@ export const ResetDateTime = (): JSX.Element => {
         color: Color.white100,
         fontSize: '120%',
         p: 0,
-        maxWidth: 30,
-        border: `1px solid ${Color.white100}`,
+        minWidth: 40,
+        border: Border.button,
       }}
       onClick={() => dispatch(setDateTime(dt))}
     >

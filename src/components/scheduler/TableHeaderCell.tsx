@@ -3,10 +3,12 @@ import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Color, TableView } from 'constants/index';
+import { Border, Color, TableView } from 'constants/index';
 import { useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
-import { timeSelector } from 'store';
+import { schedulerSelector } from 'store';
+
+import { CabinetsWrapper } from './CabinetsWrapper';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -14,7 +16,7 @@ type ContainerProps = {
 };
 
 const Container = ({ children, day }: ContainerProps): JSX.Element => {
-  const { view } = useAppSelector(timeSelector);
+  const { view } = useAppSelector(schedulerSelector);
   const diff: number = day.diffNow('days').days;
   let backgroundColor: Color = Color.white100;
   let color: Color = Color.black100;
@@ -35,8 +37,7 @@ const Container = ({ children, day }: ContainerProps): JSX.Element => {
         display: 'flex',
         flexDirection: 'column',
         width: TableView[`$${view}`],
-        px: 0.5,
-        border: `0.5px solid ${Color.gainsboro100}`,
+        border: Border.cell,
         backgroundColor,
         color,
       }}
@@ -53,7 +54,7 @@ type MonthAndEventsWrapperProps = {
 
 const MonthAndEventsWrapper = ({ day, isBreakpoint }: MonthAndEventsWrapperProps): JSX.Element => {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'space-between', px: 0.5 }}>
       <Typography
         sx={{
           textTransform: 'capitalize',
@@ -79,7 +80,7 @@ type DayTypographyProps = {
 
 const DayTypography = ({ day }: DayTypographyProps): JSX.Element => {
   return (
-    <Typography variant="h5" sx={{ textAlign: 'center' }}>
+    <Typography variant="h5" sx={{ textAlign: 'center', px: 0.5 }}>
       {day.day}
     </Typography>
   );
@@ -97,6 +98,7 @@ const WeekdayTypography = ({ day, isBreakpoint }: WeekdayTypographyProps): JSX.E
         textAlign: 'right',
         textTransform: 'uppercase',
         fontSize: isBreakpoint ? '70%' : '100%',
+        px: 0.5,
       }}
     >
       {day.weekdayShort}
@@ -109,6 +111,7 @@ type TableHeaderCellProps = {
 };
 
 export const TableHeaderCell = ({ day }: TableHeaderCellProps): JSX.Element => {
+  const { type } = useAppSelector(schedulerSelector);
   const isBreakpoint: boolean = useMediaQuery(useTheme().breakpoints.down('md'));
 
   return (
@@ -116,6 +119,7 @@ export const TableHeaderCell = ({ day }: TableHeaderCellProps): JSX.Element => {
       <MonthAndEventsWrapper day={day} isBreakpoint={isBreakpoint} />
       <DayTypography day={day} />
       <WeekdayTypography day={day} isBreakpoint={isBreakpoint} />
+      {type === 'work' && <CabinetsWrapper isBreakpoint={isBreakpoint} isEmpty={false} />}
     </Container>
   );
 };

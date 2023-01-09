@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
 import { shiftLeft, shiftRight } from 'store';
-import { timeSelector } from 'store';
+import { schedulerSelector } from 'store';
+import { fillDaysHelper } from 'utils';
 
 import { TableColumn } from './TableColumn';
 import { Timeline } from './Timeline';
@@ -15,7 +16,7 @@ type ContainerProps = {
 
 const Container = forwardRef(
   ({ children }: ContainerProps, ref: React.ForwardedRef<unknown>): JSX.Element => {
-    const { zoom } = useAppSelector(timeSelector);
+    const { zoom } = useAppSelector(schedulerSelector);
     return (
       <Box sx={{ display: 'flex', height: `${zoom}vh` }} ref={ref}>
         {children}
@@ -24,11 +25,8 @@ const Container = forwardRef(
   }
 );
 
-type TableBodyProps = {
-  days: DateTime[];
-};
-
-export const TableBody = ({ days }: TableBodyProps): JSX.Element => {
+export const TableBody = (): JSX.Element => {
+  const { dt, view } = useAppSelector(schedulerSelector);
   const dispatch = useAppDispatch();
   const handlers: SwipeableHandlers = useSwipeable({
     onSwipedLeft: () => dispatch(shiftRight()),
@@ -44,6 +42,8 @@ export const TableBody = ({ days }: TableBodyProps): JSX.Element => {
     // set myRef el so you can access it yourself
     myRef.current = el;
   };
+
+  const days = fillDaysHelper(dt, view);
 
   return (
     <Container {...handlers} ref={refPassthrough}>

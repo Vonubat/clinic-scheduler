@@ -6,11 +6,11 @@ import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 import { Color, locale } from 'constants/index';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { DateTime } from 'luxon';
-import { timeSelector } from 'store';
-import { setDateTime } from 'store/slices/timeSlice';
+import { schedulerSelector } from 'store';
+import { setDateTime } from 'store';
 
 export const NavigationDatePicker = () => {
-  const { dt } = useAppSelector(timeSelector);
+  const { dt } = useAppSelector(schedulerSelector);
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [date, setDate] = useState<DateTime>(dt);

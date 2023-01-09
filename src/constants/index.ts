@@ -1,15 +1,6 @@
 export const locale = 'ru';
 
 export const TIMELINE: string[] = [
-  '00:00',
-  '01:00',
-  '02:00',
-  '03:00',
-  '04:00',
-  '05:00',
-  '06:00',
-  '07:00',
-  '08:00',
   '09:00',
   '10:00',
   '11:00',
@@ -23,11 +14,10 @@ export const TIMELINE: string[] = [
   '19:00',
   '20:00',
   '21:00',
-  '22:00',
-  '23:00',
 ];
 
 export enum Color {
+  transparent = 'transparent',
   gainsboro100 = 'rgba(220, 220, 220, 1)',
   white100 = 'rgba(255, 255, 255, 1)',
   forestGreen100 = 'rgba(34, 139, 34, 1)',
@@ -37,8 +27,21 @@ export enum Color {
   red100 = 'rgba(255, 0, 0, 1)',
 }
 
+export const Border = {
+  cell: `0.5px solid ${Color.gainsboro100}`,
+  button: `1px solid ${Color.white100}`,
+};
+
 export enum TableView {
   $7 = '14.285714%',
   $3 = '33.333333%',
   $1 = '100%',
 }
+
+export enum Path {
+  home = '/',
+  scheduler = '/scheduler',
+  any = '*',
+}
+
+export const CABINETS: number[] = [1, 2, 3];
